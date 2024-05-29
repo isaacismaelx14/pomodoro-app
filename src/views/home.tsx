@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { TimerType } from "@/src/enums/types";
 import { Header } from "@/src/components/Header";
 import { Timer } from "@/src/components/Timer";
+import { getStage } from "../utils/stages";
 
 const colors = ["#F7DC6F", "#A2D9CE", "#D7BDE2"];
 
@@ -31,7 +32,8 @@ export const HomeView = () => {
 
     if (time === 0) {
       setIsActive(false);
-      setTime(currentTimer === TimerType.WORK ? 25 * 60 : 5 * 60);
+      const stage = getStage(currentTimer);
+      setTime(stage?.time || 25 * 60);
     }
 
     return () => {
@@ -41,6 +43,12 @@ export const HomeView = () => {
 
   function handleToggle() {
     setIsActive((prev) => !prev);
+  }
+
+  function handleReset() {
+    setIsActive(false);
+    const stage = getStage(currentTimer);
+    setTime(stage?.time || 25 * 60);
   }
 
   return (
@@ -77,6 +85,27 @@ export const HomeView = () => {
             {isActive ? "Pause" : "Start"}
           </Text>
         </TouchableOpacity>
+        {isActive && (
+          <TouchableOpacity
+            style={[
+              styles.button,
+              {
+                backgroundColor: "#E74C3C",
+              },
+            ]}
+            onPress={handleReset}
+          >
+            <Text
+              style={{
+                color: "white",
+                fontWeight: "bold",
+                textTransform: "uppercase",
+              }}
+            >
+              Reset
+            </Text>
+          </TouchableOpacity>
+        )}
       </View>
     </SafeAreaView>
   );
@@ -95,6 +124,6 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 15,
     alignItems: "center",
-    marginVertical: 15,
+    marginTop: 15,
   },
 });

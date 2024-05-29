@@ -1,5 +1,6 @@
 import { TimerType } from "@/src/enums/types";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { Stages } from "../utils/stages";
 
 export type HeaderProps = {
   currentTimer: TimerType;
@@ -7,30 +8,12 @@ export type HeaderProps = {
   setTime: (time: number) => void;
 };
 
-const options = [
-  {
-    label: "Work",
-    value: TimerType.WORK,
-    time: 25 * 60,
-  },
-  {
-    label: "Short Break",
-    value: TimerType.SHORT_BREAK,
-    time: 5 * 60,
-  },
-  {
-    label: "Long Break",
-    value: TimerType.LONG_BREAK,
-    time: 15 * 60,
-  },
-];
-
 export const Header: React.FC<HeaderProps> = ({
   currentTimer,
   setCurrentTimer,
   setTime,
 }) => {
-  const handlePress = (opt: (typeof options)[number]) => {
+  const handlePress = (opt: (typeof Stages)[number]) => {
     setCurrentTimer(opt.value);
     setTime(opt.time);
   };
@@ -42,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({
         justifyContent: "center",
       }}
     >
-      {options.map((option) => (
+      {Stages.map((option) => (
         <TouchableOpacity
           key={option.value}
           style={[
