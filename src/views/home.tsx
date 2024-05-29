@@ -85,27 +85,33 @@ export const HomeView = () => {
             {isActive ? "Pause" : "Start"}
           </Text>
         </TouchableOpacity>
-        {isActive && (
-          <TouchableOpacity
-            style={[
-              styles.button,
-              {
-                backgroundColor: "#E74C3C",
-              },
-            ]}
-            onPress={handleReset}
-          >
-            <Text
-              style={{
-                color: "white",
-                fontWeight: "bold",
-                textTransform: "uppercase",
-              }}
+        <View
+          style={{
+            minHeight: 80,
+          }}
+        >
+          {isActive && (
+            <TouchableOpacity
+              style={[
+                styles.button,
+                {
+                  backgroundColor: "#E74C3C",
+                },
+              ]}
+              onPress={handleReset}
             >
-              Reset
-            </Text>
-          </TouchableOpacity>
-        )}
+              <Text
+                style={{
+                  color: "white",
+                  fontWeight: "bold",
+                  textTransform: "uppercase",
+                }}
+              >
+                Reset
+              </Text>
+            </TouchableOpacity>
+          )}
+        </View>
       </View>
     </SafeAreaView>
   );
