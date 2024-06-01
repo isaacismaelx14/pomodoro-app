@@ -1,6 +1,7 @@
 import { Link } from "expo-router";
 import { Text, SafeAreaView, StyleSheet, View, Platform } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { Button, Label } from "tamagui";
 
 export const SettingsView = () => {
   return (
@@ -27,6 +28,154 @@ export const SettingsView = () => {
             <AntDesign name="arrowleft" size={28} color="black" />
           </Link>
           <Text style={styles.text}>Settings</Text>
+        </View>
+        {/* Pomodoro Timer */}
+        <Label
+          style={{
+            fontWeight: "bold",
+          }}
+        >
+          Pomodoro Timer
+        </Label>
+        <View
+          style={{
+            flexDirection: "row",
+            gap: 15,
+          }}
+        >
+          <Button
+            theme="blue_active"
+            onPress={() => {
+              alert("Hello World!");
+            }}
+            style={{
+              flex: 1,
+            }}
+          >
+            25 Minutes
+          </Button>
+          <Button
+            theme="blue_active"
+            onPress={() => {
+              alert("Hello World!");
+            }}
+            style={{
+              flex: 1,
+            }}
+          >
+            50 Minutes
+          </Button>
+          <Button
+            theme="blue_active"
+            onPress={() => {
+              alert("Hello World!");
+            }}
+            style={{
+              flex: 1,
+            }}
+          >
+            1 Hour
+          </Button>
+        </View>
+
+        {/* Short Break Timer */}
+        <Label
+          style={{
+            fontWeight: "bold",
+            marginTop: 15,
+          }}
+        >
+          Short Break Timer
+        </Label>
+        <View
+          style={{
+            flexDirection: "row",
+            gap: 15,
+          }}
+        >
+          <Button
+            theme="blue_active"
+            onPress={() => {
+              alert("Hello World!");
+            }}
+            style={{
+              flex: 1,
+            }}
+          >
+            5 Minutes
+          </Button>
+          <Button
+            theme="blue_active"
+            onPress={() => {
+              alert("Hello World!");
+            }}
+            style={{
+              flex: 1,
+            }}
+          >
+            10 Minutes
+          </Button>
+          <Button
+            theme="blue_active"
+            onPress={() => {
+              alert("Hello World!");
+            }}
+            style={{
+              flex: 1,
+            }}
+          >
+            15 Minutes
+          </Button>
+        </View>
+
+        {/* Long Break Timer */}
+        <Label
+          style={{
+            fontWeight: "bold",
+            marginTop: 15,
+          }}
+        >
+          Long Break Timer
+        </Label>
+        <View
+          style={{
+            flexDirection: "row",
+            gap: 15,
+          }}
+        >
+          <Button
+            theme="blue_active"
+            onPress={() => {
+              alert("Hello World!");
+            }}
+            style={{
+              flex: 1,
+            }}
+          >
+            15 Minutes
+          </Button>
+          <Button
+            theme="blue_active"
+            onPress={() => {
+              alert("Hello World!");
+            }}
+            style={{
+              flex: 1,
+            }}
+          >
+            30 Minutes
+          </Button>
+          <Button
+            theme="blue_active"
+            onPress={() => {
+              alert("Hello World!");
+            }}
+            style={{
+              flex: 1,
+            }}
+          >
+            1 Hour
+          </Button>
         </View>
       </View>
     </SafeAreaView>
