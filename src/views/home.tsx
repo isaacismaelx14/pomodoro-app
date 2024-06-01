@@ -11,6 +11,8 @@ import { TimerType } from "@/src/enums/types";
 import { Header } from "@/src/components/Header";
 import { Timer } from "@/src/components/Timer";
 import { getStage } from "../utils/stages";
+import { Link } from "expo-router";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 const colors = ["#F7DC6F", "#A2D9CE", "#D7BDE2"];
 
@@ -67,7 +69,18 @@ export const HomeView = () => {
           flex: 1,
         }}
       >
-        <Text style={styles.text}>Pomodoro</Text>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Text style={styles.text}>Pomodoro</Text>
+          <Link href={"/settings"}>
+            <AntDesign name="setting" size={28} color="black" />
+          </Link>
+        </View>
         <Header
           currentTimer={currentTimer}
           setCurrentTimer={setCurrentTimer}
